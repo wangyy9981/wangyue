@@ -1,0 +1,302 @@
+html {
+    font-size: 50px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*顶部  */
+.navbar {
+    background-color: #FFD000;
+    position: relative;
+    height: 1.01rem;
+    line-height: 1.01rem;
+    font-size: 0;
+}
+
+/*左侧 城市搜索  */
+.navbar .nav-wrap-left {
+    float: left;
+    width: 1.50rem;
+    height: 1.01rem;
+    font-size: 0.28rem;
+}
+
+.navbar .nav-wrap-left .city {
+    text-align: center;
+    line-height: 1.01rem;
+    margin: 0.31rem 0 0.31rem 0.30rem;
+}
+
+.navbar .nav-wrap-left img {
+    margin-left: 0.1rem;
+    padding-bottom: 0.05rem;
+    width: 0.16rem;
+    height: 0.09rem;
+}
+
+/* 中部 商品搜索 */
+.navbar .box-search {
+    text-indent: .2rem;
+    font-size: .27rem;
+    height: 0.64rem;
+    color: #999999;
+    border-radius: 9px;
+    line-height: 32px;
+    /* line-height: 1.01rem; */
+    background: #FFFFFF;
+    position: absolute;
+    left: 1.6rem;
+    top: .15rem;
+    right: 1.2rem;
+    /* margin-left: .15rem; */
+    opacity: .9;
+}
+.navbar .box-search .single-line{
+    outline: none;
+    border: none;
+    width: 5rem;
+}
+/* 右侧 用户 */
+.navbar .nav-wrap-right {
+    float: right;
+    width: 1rem;
+    height: 100%;
+    text-align: center;
+}
+
+.navbar .nav-wrap-right img {
+    float: left;
+    width: 0.5rem;
+    height: 0.5rem;
+    padding-top: .2rem;
+    vertical-align: middle;
+}
+
+
+
+
+/* 推广 */
+.banner-download {
+    height: 1.04rem;
+    background-color: #000;
+    line-height: 1.04rem;
+
+}
+
+/* 左侧推荐 */
+.banner-download .banner-item {
+    float: left;
+    overflow: hidden;
+    height: 100%;
+    width: 6rem;
+}
+
+.banner-download .banner-item img {
+    /* display: inline-block; */
+    width: 0.72rem;
+    height: 0.72rem;
+    padding: 0.16rem 0 0.16rem 0.3rem;
+}
+
+.banner-download .banner-item .logo-theme {
+    display: inline-block;
+    margin-left: -.1rem;
+    vertical-align: top;
+    padding-top: 0.16rem 0 0 0;
+    width: 4rem;
+    height: 100%;
+    line-height: 1.41;
+    font-size: .26rem;
+    color: #fff;
+}
+
+.banner-download .banner-item .logo-tit {
+    margin-top: .2rem;
+    font-size: 0.26rem
+}
+
+/* 右侧  "去APP" */
+.banner-download .to-app-btn {
+    float: right;
+    height: 100%;
+    position: relative;
+}
+
+/* 按钮 去APP */
+.banner-download .to-app-btn .call-app-btn {
+    float: right;
+    position: absolute;
+    right: 0.29rem;
+    top: 0.22rem;
+    width: 1.1rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    text-align: center;
+    border-radius: 0.14rem;
+    font-size: 0.26rem;
+    background-color: #FFD000;
+}
+
+
+
+/* 导航 */
+.nav {
+    border-bottom: .15rem solid #f0efed;
+}
+
+.nav-wrapper {
+    width: 100%;
+    height: 3.3rem;
+    border-bottom: 1px solid #DDD8CE;
+}
+
+.nav-wrapper .nav-list .icon {
+    float: left;
+    height: 50%;
+    width: 20%;
+    list-style: none;
+    font-size: 0.24rem;
+    text-align: center;
+    box-sizing: border-box;
+    margin: .2rem 0;
+}
+
+.nav-wrapper .nav-list span {
+    display: inline-block;
+    width: .8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    font-size: .5rem;
+    color: #fff;
+    background-color: #fd9d21;
+    margin-bottom: .14rem;
+    text-align: center;
+    line-height: .8rem;
+}
+
+.nav-wrapper li:nth-child(2) span {
+    background-color: #ff6767;
+}
+
+.nav-wrapper li:nth-child(3) span {
+    background-color: #8a90fa;
+}
+
+.nav-wrapper li:nth-child(4) span {
+    background-color: #fed030;
+}
+
+.nav-wrapper li:nth-child(5) span {
+    background-color: #fd9d21;
+}
+
+.nav-wrapper li:nth-child(6) span {
+    background-color: #fed030;
+}
+
+.nav-wrapper li:nth-child(7) span {
+    background-color: #4dc6ee;
+}
+
+.nav-wrapper li:nth-child(8) span {
+    background-color: #ff80c2;
+}
+
+.nav-wrapper li:nth-child(9) span {
+    background-color: #fd9d21;
+}
+
+.nav-wrapper li:nth-child(10) span {
+    background-color: #00d3be;
+}
+
+
+
+
+/* 商家信息推荐 */
+.recommed {
+    width: 100%;
+    border-top: 1px solid #DDD8CE;
+}
+
+.guessLike {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: .3rem;
+}
+
+/* 头部  猜你喜欢  */
+.guessLike .youLike {
+    width: 100%;
+    height: 1rem;
+    font-size: .34rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #DDD8CE;
+    color: #333;
+    background-color: #ffffff;
+}
+
+/* 商家推荐 */
+.guessLike .business-list {
+    position: relative;
+    margin: .1rem 0;
+    overflow: hidden;
+    font-size: .24rem;
+    list-style: none;
+    border-bottom: 1px solid #DDD8CE;
+}
+
+/*商家图片  */
+.guessLike .business-list .bus-img {
+    float: left;
+    margin-right: .2rem;
+    overflow: hidden;
+}
+
+.guessLike .business-list img {
+    width: 1.8rem;
+    height: 1.64rem;
+}
+
+/* 商家信息 */
+.guessLike .business-list .informatin-box {
+    height: 1.64rem;
+    float: left;
+    position: relative;
+}
+
+.guessLike .information .inf-up {
+    font-size: .3rem;
+    color: #333;
+}
+
+.guessLike .information .inf-bottom {
+    color: #666;
+}
+
+/* 价格 */
+.guessLike .informatin-box .price {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.guessLike .informatin-box .price-now {
+    font-size: .36rem;
+    color: #f60;
+}
+
+.guessLike .informatin-box .pr {
+    color: #f60;
+}
+
+/*已售  */
+.guessLike .price-right {
+    position: absolute;
+    bottom: .1rem;
+    right: .4rem;
+}

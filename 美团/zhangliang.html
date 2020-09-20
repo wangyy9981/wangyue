@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_2033089_uymb4u0mhu.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        /* 返回按钮 */
+        .return {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(46, 47, 59);
+            color: rgb(255, 255, 255);
+            line-height: 50px;
+            text-indent: 10px;
+
+        }
+
+        /*头部  */
+        .header {
+            width: 100%;
+            height: 80px;
+            position: relative;
+            margin-bottom: 15px;
+            background-color: rgb(46, 47, 59);
+            border-top: 1px solid rgb(46, 47, 59);
+            overflow: hidden;
+        }
+
+        .header .img {
+            float: left;
+            margin-left: 10px;
+            margin-top: 5px;
+            box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+            border-radius: 2px;
+        }
+
+        .header .img img {
+            width: 85px;
+            height: 64px;
+        }
+
+        /* 信息 */
+        .header .right {
+            position: absolute;
+            top: 0;
+            left: 95px;
+            right: 0px;
+            height: 80px;
+        }
+
+        .header .information {
+            margin-top: 5px;
+            margin-left: 10px;
+            line-height: 16px;
+            height: 16px;
+            font-size: 12px;
+            color: #ffffff;
+        }
+
+        .header .information .inf-up {
+            overflow: hidden;
+            padding-bottom: 5px;
+        }
+
+        .header .information p {
+            float: left;
+        }
+
+        .header .information .inf-up span {
+            float: left;
+            border: 0.1px solid #ffffff;
+            width: 0.1px;
+            height: 5px;
+            margin: 10px 5px 0 5px;
+        }
+
+        .header .information .inf-right {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 48px;
+            height: 15px;
+            background-image: url("img/美团专送.png");
+            background-position: center;
+            background-size: contain;
+        }
+
+        .header .information .inf-center {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            position: absolute;
+            left: 10px;
+            right: 5px;
+            padding-right: 20px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .header .inf-bottom {
+            width: 100%;
+            height: 15px;
+            font-size: 12px;
+            position: absolute;
+            bottom: 12px;
+            left: 10px;
+            overflow: hidden;
+        }
+
+        .header .inf-bottom .message {
+            position: relative;
+        }
+
+        .header .inf-bottom .inf-bot-1,
+        .inf-bot-2 {
+            margin-bottom: 6px;
+        }
+
+        .header .inf-bottom .inf-bot-1 .img {
+            width: 15px;
+            height: 15px;
+            background-image: url("img/减.png");
+            background-position: center;
+            background-size: contain;
+            margin: 0 5px 0 0;
+        }
+
+        .header .inf-bottom .inf-bot-2 .img {
+            width: 15px;
+            height: 15px;
+            background-image: url("img/折.png");
+            background-position: center;
+            background-size: contain;
+            margin: 0 5px 0 0;
+        }
+
+        .header .inf-bottom .inf-bot-last .img {
+            width: 15px;
+            height: 15px;
+            background-image: url("img/减.png");
+            background-position: center;
+            background-size: contain;
+            margin: 0 5px 0 0;
+        }
+
+        .header .inf-bottom .inf-bot-right {
+            position: absolute;
+            top: 3px;
+            right: 10px;
+            width: 35px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+        }
+
+        /* 菜单 */
+        .menu {
+            overflow: hidden;
+        }
+
+        .menu .nav {
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #DDD8CE;
+        }
+
+        .menu .nav .nav-list {
+            list-style: none;
+            float: left;
+            width: 33.3%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .menu .nav-list .active {
+            display: inline-block;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 20px;
+            margin-left: -10px;
+            border-bottom: solid 2px #ffd300;
+        }
+
+        /* 菜品种类选择 */
+        .menu .choose {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu .choose .choose-kind {
+            float: left;
+            min-height: 100%;
+            width: 80px;
+
+        }
+
+        .menu .choose-kind .kind-list {
+            overflow: hidden;
+            padding: 9px 10px 22px;
+            box-sizing: border-box;
+            min-height: 49px;
+            font-size: 13px;
+            color: #666666;
+            background-color: rgb(245, 245, 245);
+            text-align: left;
+            padding-top: 9px;
+            padding-bottom: 22px;
+        }
+
+        .menu .choose-kind .rexiao img {
+            width: 15px;
+            height: 15px;
+            margin-right: 3px;
+            margin-top: 2px;
+        }
+
+        .menu .choose-kind .kind-list:hover {
+            font-size: 14px;
+            color: black;
+            background-color: #fff;
+        }
+
+        /* 菜品选择 */
+        .menu .choose .choose-list {
+            position: absolute;
+            left: 80px;
+            right: 0;
+            height: 100%;
+            box-sizing: border-box;
+
+        }
+
+        .menu .choose-list .lead {
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            padding-left: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 12px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .menu .choose-list ul {
+            position: relative;
+            margin-top: 36px;
+        }
+
+        .menu .choose-list .menu-list {
+            position: relative;
+            list-style: none;
+            width: 100%;
+            height: 79px;
+            margin-bottom: 20px;
+        }
+
+        .menu .menu-list .mL-img {
+            display: inline-block;
+            background-image: url("img/麻辣烫.jpg");
+            width: 75px;
+            height: 75px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .menu .menu-list .mL-nav {
+            display: inline-block;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 75px;
+            right: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .menu .mL-nav .mLnav-up {
+            font-size: 16px;
+            margin-bottom: 2px;
+            color: #333333;
+            width: 100%;
+        }
+
+        .menu .mL-nav .mLnav-center1 {
+            line-height: 15px;
+            font-size: 11px;
+            margin-bottom: 3px;
+            width: 100%;
+        }
+
+        .menu .mL-nav .mLnav-center2 {
+            margin-bottom: 3px;
+            height: 15px;
+            line-height: 15px;
+            width: 100%;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .menu .mL-nav .mLnav-bottom {
+            width: 100%;
+            height: 25px;
+            position: relative;
+        }
+
+        .menu .mLnav-bottom .price-N {
+            color: #fb4e44;
+            font-size: 18px;
+            height: 21.5px;
+            line-height: 21.5px;
+        }
+
+        .menu .mLnav-bottom .price-L {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .menu .mLnav-bottom .mLbot-right {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            width: 56px;
+            height: 25px;
+            background-color: #ffbd27;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 25px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="zhanglaing">
+        <div class="return">
+            <span class="iconfont icon-fangxiang-xiangzuo"></span>
+        </div>
+        <header class="header">
+            <div class="img">
+                <img src="img/张亮麻辣烫.jpg" alt="">
+            </div>
+            <div class="right">
+                <div class="information">
+                    <div class="inf-up">
+                        <p>30分钟</p>
+                        <span></span>
+                        <p>651米</p>
+                        <div class="inf-right">
+                        </div>
+                    </div>
+                    <div class="inf-center">
+                        公告：欢迎使用外卖订餐.如有问题电话沟通,请给五星好评(谢谢您的支持)!!
+                    </div>
+                    <div class="inf-bottom">
+                        <div class="message">
+                            <div class="inf-bot-1">
+                                <div class="img"></div> 满30减1；满50减3
+                            </div>
+                            <div class="inf-bot-2">
+                                <div class="img"></div> 折扣商品9.8折起
+                            </div>
+                            <div class="inf-bot-last">
+                                <div class="img"></div> 满30减1；满50减3
+                            </div>
+                        </div>
+                        <div class="inf-bot-right">
+                            <span class="iconfont icon-fangxiang-xiangyou"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="menu">
+            <div class="nav">
+                <ul>
+                    <li class="nav-list">点菜<span class="active"></span></li>
+                    <li class="nav-list">评价<span></span></li>
+                    <li class="nav-list">商家<span></span></li>
+                </ul>
+            </div>
+            <div class="choose">
+                <div class="choose-kind">
+                    <ul>
+                        <li class="kind-list rexiao"><img src="img/热销.png" alt="">热销</li>
+                        <li class="kind-list">今日特价</li>
+                        <li class="kind-list">原始麻辣烫</li>
+                        <li class="kind-list">套餐组合</li>
+                        <li class="kind-list">套餐系列</li>
+                        <li class="kind-list">麻辣拌</li>
+                        <li class="kind-list">麻辣香锅</li>
+                        <li class="kind-list">麻辣烫调味料</li>
+                        <li class="kind-list">菜品</li>
+                        <li class="kind-list">粉类</li>
+                        <li class="kind-list">丸类</li>
+                        <li class="kind-list">素水类</li>
+                        <li class="kind-list">面类</li>
+                        <li class="kind-list">饮品</li>
+                        <li class="kind-list">餐盒</li>
+                        <li class="kind-list">炸串</li>
+                        <li class="kind-list">主食</li>
+                    </ul>
+                </div>
+                <div class="choose-list">
+                    <div class="lead">热销</div>
+                    <ul>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(1)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(2)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(3)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(4)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(5)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(6)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(7)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(8)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(9)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(10)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-list">
+                            <div class="mL-img"></div>
+                            <div class="mL-nav">
+                                <div class="mLnav-up">(11)10元实惠麻辣烫套餐</div>
+                                <div class="mLnav-center1">鸡丸，蟹棒，虾仁，多种蔬菜，面！
+                                    量大实惠！</div>
+                                <div class="mLnav-center2"><span>月售400+</span> <span>赞29</span></div>
+                                <div class="mLnav-bottom">
+                                    <span class="price-N">￥10</span>
+                                    <span class="price-L">/1人份 起</span>
+                                    <div class="mLbot-right">选规格</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        let aMessage = document.querySelector(".message");
+        let aNav = document.querySelectorAll(".menu .nav span");
+        let navList = document.querySelectorAll(".menu .nav .nav-list");
+        let kindList = document.querySelectorAll(".menu .choose-kind .kind-list");
+        let oNav = document.querySelector(".menu");
+        let oUl = document.querySelector(".menu .choose-list ul");
+        let timer, runTimer;
+        // 头部 优惠轮播
+        Run();
+        function Run() {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                aMessage.style.top = aMessage.offsetTop + -2 + "px";
+                if ((aMessage.offsetTop % (-22)) == 0) {
+                    clearInterval(timer);
+                    if (aMessage.offsetTop == (aMessage.children.length - 1) * -22) {
+                        aMessage.style.top = 0;
+                    }
+                    clearInterval(runTimer);
+                    runTimer = setTimeout(function () {
+                        Run();
+                    }, 3000)
+                }
+            }, 25)
+        }
+        aMessage.onmousemove = function () {
+            clearInterval(timer);
+            clearInterval(runTimer);
+        }
+        aMessage.onmouseout = function () {
+            Run();
+        }
+        // 板块选择
+        for (let i = 0; i < navList.length; i++) {
+            navList[i].index = i;
+            navList[i].onclick = function () {
+                for (let j = 0; j < navList.length; j++) {
+                    aNav[j].classList.remove("active");
+                }
+                aNav[this.index].classList.add("active");
+            }
+        }
+        // 点菜板块
+        // 上滑固定
+        window.onscroll = function () {
+            console.log(oNav.getBoundingClientRect().top);
+            // if (oNav.getBoundingClientRect().top <= -4) {
+            //     oNav.style.position = "fixed";
+            //     oNav.style.top = 0 + "px";
+            //     oNav.style.left = 0 + "px";
+            // }
+        }
+        //菜品种类跳转 
+        for (let i = 0; i < kindList.length; i++) {
+            kindList[i].index=i;
+            kindList[i].onclick = function () {
+                oUl.style.top=-79*i+"px";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

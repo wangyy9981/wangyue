@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 获取屏幕宽度
+        var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeigt = document.documentElement.clientHeight || document.body.clientHeight;
+        function Leaf() {
+            this.width = Math.random() * 50 + 100;
+            this.top = 0;
+            this.left = Math.random() * (screenWidth - this.width);
+            var img = new Image();
+            img.src = "img/" + (Math.floor(Math.random() * 4) + 1) + ".png";
+            img.style.width = this.width + "px";
+            img.style.left = this.left + "px";
+            img.style.top = this.top + "px";
+
+            this.img = img;
+        }
+        Leaf.prototype.init = function () {
+            //将leaf的img插入页面中 
+            document.body.appendChild(this.img);
+        }
+        Leaf.prototype.fall=function(){
+            setTimeout(()=>{
+                this.timer=setInterval(()=>{
+                if(this.img.offsetTop<=screenHeigt-this.img.offsetHeight)
+                this.img.style.top=this.img.offsetTop+10+"px";
+                else
+                clearInterval(this.timer);
+            },16)
+            },Math.random()*1000)
+            
+        }
+        var leafs=[];
+        for (let i = 0; i < 10; i++) {
+            let leaf = new Leaf();
+            leaf.init();
+            leafs.push(leaf);
+        }
+        document.onclick=function(){
+            console.log(1110);
+            for(let j=0;j<10;j++){
+                leafs[j].fall();
+            }
+        }
+    </script>
+</body>
+
+</html>

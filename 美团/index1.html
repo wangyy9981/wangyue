@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_2026339_bi4e70pzwdf.css">
+    <script src="rem.js"></script>
+    <style>
+        .header-box {
+            height: 50px;
+            background: #1C1B20;
+            color: #fff;
+            font-size: 16px;
+            display: flex;
+            justify-self: start;
+        }
+
+        .header-box .location-box {
+            line-height: 50px;
+            display: flex;
+            justify-self: start;
+            margin: 0 .2rem;
+        }
+
+        .header-box .location-box .location {
+            overflow: hidden;
+            margin-left: .05rem;
+        }
+
+        .header-box .search-box {
+            flex: 1;
+            height: 30px;
+            border-radius: 15px;
+            background: #fff;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        .header-box .search-box .icon-sousuo {
+            color: #1C1B20;
+            float: left;
+            margin: 5px 0 0 10px
+        }
+
+        .header-box .search-box input {
+            float: left;
+            width: 2.8rem;
+            height: 30px;
+            border: none;
+            outline: none;
+            margin-left: 5px;
+        }
+
+        .cate .cate-box {
+            margin-top: .05rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .cate .cate-box .cate-list {
+            width: 20%;
+            text-align: center;
+            margin-bottom: .05rem;
+        }
+
+        .cate .cate-list span {
+            display: inline-block;
+            width: .3rem;
+            height: .3rem;
+            border-radius: 50%;
+            font-size: .2rem;
+            color: #fff;
+            background-color: #fd9d21;
+            margin-bottom: .03rem;
+            text-align: center;
+            line-height: .3rem;
+        }
+
+        .cate li:nth-child(2) span {
+            background-color: #ff6767;
+        }
+
+        .cate li:nth-child(3) span {
+            background-color: #8a90fa;
+        }
+
+        .cate li:nth-child(4) span {
+            background-color: #fed030;
+        }
+
+        .cate li:nth-child(5) span {
+            background-color: #fd9d21;
+        }
+
+        .cate li:nth-child(6) span {
+            background-color: #fed030;
+        }
+
+        .cate li:nth-child(7) span {
+            background-color: #4dc6ee;
+        }
+
+        .cate li:nth-child(8) span {
+            background-color: #ff80c2;
+        }
+
+        .cate li:nth-child(9) span {
+            background-color: #fd9d21;
+        }
+
+        .cate li:nth-child(10) span {
+            background-color: #00d3be;
+        }
+
+        .cate .store {
+            text-align: center;
+            height: 0.3rem;
+            line-height: 0.3rem;
+            color: #333;
+            font-size: 17px;
+        }
+
+        .cate .store .store-title::before,
+        .store-title::after {
+            content: "";
+            display: inline-block;
+            width: 33px;
+            height: 1px;
+            background: #666;
+            vertical-align: middle;
+            transform: scaleY(0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-box">
+        <div class="location-box">
+            <span class="iconfont icon-location"></span>
+            <div class="location">理工大厦 &gt;</div>
+        </div>
+        <div class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+            <input type="text" placeholder="请输入商家和商品..."></div>
+    </header>
+    <div class="cate">
+        <ul class="cate-box">
+            <li class="cate-list">
+                <span class="iconfont icon-shaozikuaizi"></span>
+                <div>美食</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-dianying"></span>
+                <div>猫眼电影</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-jiudian"></span>
+                <div>酒店</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-jiweijiu"></span>
+                <div>休息娱乐</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-icon-test"></span>
+                <div>外卖</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-KTV"></span>
+                <div>KTV</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-zhoubianyou"></span>
+                <div>周边游</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-nvren"></span>
+                <div>丽人</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-icon-test1"></span>
+                <div>小吃快餐</div>
+            </li>
+            <li class="cate-list">
+                <span class="iconfont icon-ellipsis2"></span>
+                <div>全部分类</div>
+            </li>
+        </ul>
+        <div class="store">
+            <h3 class="store-title">附近商家</h3>
+        </div>
+    </div>
+</body>
+
+</html>

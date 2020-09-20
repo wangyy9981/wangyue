@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .box {
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            border: 5px solid white;
+            position: relative;
+        }
+
+        .img-content li {
+            display: none;
+        }
+
+        .img-content .active {
+            display: block;
+        }
+
+        .btn-content {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .btn-content .bc-left {
+            float: left;
+        }
+
+        .btn-content .bc-right {
+            float: right;
+        }
+
+        .btn-content li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #f90;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            margin: 0 5px;
+        }
+
+        .btn-content .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="img-content">
+            <ul>
+                <li class="img-list active"><img src="./image/01.jpg" alt=""></li>
+                <li class="img-list"><img src="./image/02.jpg" alt=""></li>
+                <li class="img-list"><img src="./image/03.jpg" alt=""></li>
+                <li class="img-list"><img src="./image/04.jpg" alt=""></li>
+                <li class="img-list"><img src="./image/05.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="btn-content">
+            <div class="bc-left">
+                <ul>
+                    <li class="arr-btn" id="prev">&lt;</li>
+                    <li class="arr-btn" id="next">&gt;</li>
+                </ul>
+            </div>
+            <div class="bc-right">
+                <ul>
+                    <li class="num-btn active">1</li>
+                    <li class="num-btn">2</li>
+                    <li class="num-btn">3</li>
+                    <li class="num-btn">4</li>
+                    <li class="num-btn">5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var iNow = 0;
+        var timer;
+        // 跳转按钮
+        $(".bc-right .num-btn").on("click", function () {
+            change($(this).index());
+            
+        })
+
+        // 左右按钮
+        $(".bc-left #next").on("click", function () {
+            iNow = (++iNow) % 5;
+            change(iNow);
+        })
+        $(".bc-left #prev").on("click", function () {
+            iNow--;
+            if (iNow == -1) {
+                iNow = 4;
+            }
+            console.log(iNow);
+            change(iNow);
+        })
+        // 跳转函数
+        function change(index) {
+            $(".num-btn").eq(index).addClass("active").siblings().removeClass("active");
+            $(".img-content .img-list").eq(index).addClass("active").siblings().removeClass("active");
+            iNow=index;
+            delat();
+        }
+        // 定时轮转
+        delat();
+        function delat(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+                $(".bc-left #next").trigger("click");
+            },2000)
+        }
+        // 鼠标移入暂停
+        $(".box").on("mouseover",function(){
+            clearInterval(timer);
+        })
+        // 鼠标移出开始轮转
+        $(".box").on("mouseout",function(){
+            delat();
+        })
+    </script>
+</body>
+
+</html>
