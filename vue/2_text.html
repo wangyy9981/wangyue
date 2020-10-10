@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="app">
+        <aa name='哈哈哈'></aa>
+    </div>
+
+    <template id="temp">
+       <p>{{name}}</p> 
+    </template>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: ".app",
+            components: {
+                'aa': {
+                    template: "#temp",
+                    props: ['name']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

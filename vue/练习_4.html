@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="show()">show</button>
+        <temp title="登陆" v-show="isShow" @show="fn">
+            <div slot="slot1">
+                <label for="name">姓名</label>
+                <input id="name" type="text">
+            </div>
+            <div slot="slot2">
+                <label for="password">密码</label>
+                <input id="password" type="text">
+            </div>
+        </temp>
+    </div>
+    <template id="aaa">
+        <div>
+            <div> {{title}}
+                <slot name='slot1'></slot>
+            </div>
+            <hr>
+            <div>
+                <slot name='slot2'></slot>
+            </div>
+            <button @click="del()">[x]</button>
+        </div>
+        
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                isShow: false
+            },
+            methods: {
+                show() {
+                    this.isShow = true;
+                },
+                fn(){
+                    this.isShow=false;
+                }
+            },
+            components: {
+                "temp": {
+                    template: "#aaa",
+                    props: ["title"],
+                    methods: {
+                        del(){
+                            this.$emit('show');
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .app {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        li {
+            list-style: none;
+            padding-bottom: 10px;
+        }
+
+        li div {
+            float: right;
+        }
+
+        .red {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+        <h2>todolist</h2>
+        <hr />
+        <div>
+            名称：<input type="text" placeholder="请输入商品名称" v-model="proName">
+            价格: <input type="text" placeholder="请输入商品价格" v-model="proPrice">
+            <button @click="add()">添加</button>
+            <input type="text" placeholder="请输入搜索内容" v-model="search" @keyup="sel()">
+            <button @click="sel()">搜索</button>
+        </div>
+
+        <div>
+            <ul>
+                <li v-for="obj in list" :class="{red:obj.isCheck}" @click="change(obj)" v-if="obj.isDel">
+                    <input type="checkbox" v-model="obj.isCheck"> {{obj.name}}
+                    <div>
+                        {{obj.price}}<span @click.stop="del(obj)">[x]</span>
+                    </div>
+                </li>
+            </ul>
+            <button @click="delAll()">删除选中
+            </button>总价 {{total()}}
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: ".app",
+            data: {
+                list: [
+                    // 名称 价格 选中变色 隐藏
+                    { name: "苹果", price: 5, isCheck: false, isDel: true },
+                    { name: "apple11", price: 666, isCheck: false, isDel: true }
+                ],
+                proName: "",
+                proPrice: "",
+                search: ""
+            },
+            methods: {
+                add() {
+                    this.list.push({ name: this.proName, price: parseInt(this.proPrice), isCheck: false, isDel: true });
+                    this.proPrice = "";
+                    this.proName = "";
+                    console.log(this.list);
+                },
+                change(obj) {
+                    obj.isCheck = !obj.isCheck;
+                },
+                total() {
+                    let sum = 0;
+                    this.list.forEach((obj) => {
+                        if (obj.isCheck) {
+                            if (obj.isDel)
+                                sum += obj.price;
+                        }
+                    })
+                    return sum;
+                },
+                del(e) {
+                    e.isDel = false;
+                },
+                delAll() {
+                    this.list.forEach((obj) => {
+                        if (obj.isCheck)
+                            obj.isDel = false;
+                    })
+                },
+                sel() {
+                    // if (this.search.length == 0) {
+                    //     this.list.forEach((obj) => {
+                    //         obj.isDel = true;
+                    //     })
+                    // }
+                    // else {
+                        this.list.forEach((obj) => {
+                            if (obj.name.includes(this.search))
+                                obj.isDel = true;
+                            else {
+                                obj.isDel = false;
+                            }
+                        })
+                    // }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

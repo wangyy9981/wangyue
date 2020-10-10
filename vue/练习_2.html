@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="app">
+        <div>
+            是否选择付费服务 <input type="checkbox" v-model="isChecked">
+        </div>
+        <ul v-if="isChecked">
+            <li v-for="x in list">{{x.name}}({{x.price}}) <input type="checkbox" v-model="list2" :value="x"> </li>
+        </ul>
+        <div>订单费用信息</div>
+        <ul>
+            <li v-if="isChecked" v-for="x in list2">{{x.name}}({{x.price}})</li>
+        </ul>
+        <div>订单总金额 {{total()}}</div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: ".app",
+            data: {
+                list: [
+                    {
+                        name: 'WIFI',
+                        price: 50
+                    },
+                    {
+                        name: '电脑',
+                        price: 100
+                    },
+                    {
+                        name: '沙发',
+                        price: 200
+                    }
+                ],
+                isChecked: false,
+                list2: [
+                    { name: '群力花园豪华型', price: 400 }
+                ]
+            },
+            methods: {
+                total() {
+                    let sum = 0;
+                    this.list2.forEach((elem) => {
+                        sum += elem.price;
+                    });
+                    return sum;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

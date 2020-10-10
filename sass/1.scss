@@ -1,0 +1,22 @@
+$color:red;
+$width:200px;
+$height:200px;
+$h:height;
+@mixin sss($width:30px) {
+    width: $width;
+    height: 50px;
+    background-color: black;
+}
+.box{
+    width: $width;
+    #{$h}: $height;
+    background-color: $color;
+    .div1{
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+    }
+    .div2{
+        @include sss(100px);
+    }
+}
