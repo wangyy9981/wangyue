@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aaa-enter{
+            transform: translateX(100%);
+        }
+        .aaa-enter-active{
+            transition: transform 5s ease;
+        }
+        .aaa-enter-to{
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn()">but</button>
+        <transition name="aaa" >
+            <h2 v-show="isShow">sadadasd</h2>
+        </transition>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                isShow:false
+            },
+            methods:{
+                fn(){
+                    this.isShow=!this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
