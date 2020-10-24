@@ -3,11 +3,11 @@
     <!-- 哈哈
     <h2>dfghjk ggl; hehe</h2>
     <test></test>-->
-    <router-view></router-view>
 
     <router-link to="/home">首页</router-link>
     <router-link to="/test">测试页面</router-link>
-
+    <!-- <router-link to="/Vuex">vue</router-link> -->
+    <router-view></router-view>
   </div>
 </template>
 <script>
