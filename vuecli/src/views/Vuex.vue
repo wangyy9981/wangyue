@@ -17,6 +17,10 @@ export default {
   methods: {
     ...mapMutations(["add"]),
   },
+  created(){
+    // 立即调用action中的getMovie函数
+    this.$store.dispatch('getMovie');
+  }
 };
 </script>
 
