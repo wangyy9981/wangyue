@@ -2,7 +2,7 @@
   <div>
     <ul class="nList">
       <li class="list" v-for="obj in cateList" :key="obj.id">
-        <img :src="obj.img" >
+        <img :src="obj.img" />
         <p>{{ obj.name }}</p>
       </li>
     </ul>
@@ -17,25 +17,21 @@ export default {
       cateList: [],
     };
   },
-  methods: {
-    created() {
-      axios
-        .get("http://admin.gxxmglzx.com/tender/test/get_type")
-        .then((res) => {
-          console.log(res.data);
-          let result = res.data;
-          if (result.errcode == 200) {
-            this.cateList = result.data;
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+  methods: {},
+  created() {
+    axios
+      .get("http://admin.gxxmglzx.com/tender/test/get_type")
+      .then((res) => {
+        console.log(res.data);
+        let result = res.data;
+        if (result.errcode == 200) {
+          this.cateList = result.data;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
-   created(){
-      this.created();
-  }
 };
 </script>
 
@@ -50,7 +46,7 @@ export default {
     margin: 15px 0 0 0;
     box-sizing: border-box;
     p {
-        margin-top: 5px;
+      margin-top: 5px;
       font-size: 18px;
     }
   }
