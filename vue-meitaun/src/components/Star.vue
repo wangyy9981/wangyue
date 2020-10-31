@@ -4,12 +4,9 @@
         <!-- 传过来num = 3.5  1  class名 根据num和i对比  -->
       <li v-for="i in 5" :key="i" :class="{
           'active':i<=num,
-          
-          'unactive':i>num
+          'half-active':((i-num)>0)&&((i-num)<1),
+          'unactive':i>Math.ceil(num) 
       }"></li>
-      <!-- <li class="active"></li>
-      <li class="half-active"></li>
-      <li class="unactive"></li> -->
     </ul>
   </div>
 </template>

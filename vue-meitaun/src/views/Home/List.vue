@@ -8,12 +8,14 @@
             <img :src="obj.img" />
             <div class="store-inf">
               <p class="sto-name">{{ obj.name }}</p>
-              <p class="">
-                <Star class="star-box" num="3"></Star>  月销 <span class="minute">{{ obj.minute }}分钟</span>
+              <p>
+                <Star class="star-box" :num="obj.score"></Star>
+                {{ obj.score }}分 <span class="sell">月售{{ obj.num }}</span>
+                <span class="minute">{{ obj.minute }}分钟</span>
               </p>
 
-              <p class="">
-                {{ obj.num }} <span class="distance">{{ obj.distance }}</span>
+              <p class="inf-center">
+                <span class="distance">{{ obj.distance }}</span>
               </p>
               <p>
                 <span>起送{{ obj.per_capita }}</span
@@ -25,31 +27,47 @@
         </ul>
       </div>
     </div>
+    <img class="loading" v-show="isShow" src="@/assets/images/loading.gif" >
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Star from '@/components/Star' 
+import Star from "@/components/Star";
 
 export default {
   data() {
     return {
       storeList: [],
+      pageNum: 0,
+      isShow:true,
+      isFinish:false
     };
   },
-  components:{
-        Star
-    },
+  components: {
+    Star,
+  },
   methods: {
     getStorelist() {
       axios
-        .get("http://admin.gxxmglzx.com/tender/test/get_store?current=0&size=5")
+        .get(
+          "http://admin.gxxmglzx.com/tender/test/get_store?current='+this.pageNum+'&size=10"
+        )
         .then((res) => {
           console.log(res);
           let result = res.data;
           if (result.errcode == 200) {
-            this.storeList = result.data.list;
+            // this.storeList = result.data.list;
+            this.storeList = [...this.storeList, ...result.data.list];
+            this.pageNum++;
+            this.isShow=false;
+            // console.log(result.data.total);
+            // console.log(this.storeList);
+            // console.log(this.storeList.length);
+            if(this.storeList.length>=result.data.total){
+              this.isFinish=true;
+            }
+            
           }
         })
         .catch((error) => {
@@ -59,6 +77,16 @@ export default {
   },
   created() {
     this.getStorelist();
+    window.onscroll = () => {
+      let scrollTtop = document.documentElement.scrollTop; // 获滚动条滚动高度
+      let clientHeight = document.documentElement.clientHeight; //可视区高度
+      let scrollHeight = document.documentElement.scrollHeight; //整个页面的高度
+      console.log(scrollTtop, clientHeight, scrollHeight);
+      if (Math.ceil(scrollTtop) + clientHeight >= scrollHeight && !this.isFinish) {
+        this.isShow=true;
+        this.getStorelist();
+      }
+    };
   },
 };
 </script>
@@ -85,14 +113,21 @@ export default {
     justify-self: start;
     padding-right: 0.4rem;
     img {
-      width: 1.52rem;
+      width: 1.4rem;
       margin: 10px;
-      //   height: .5rem;
     }
     .store-inf {
       flex: 1;
       .sto-name {
         font-size: 0.25rem;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 11px;
+      }
+      .inf-center {
+        display: block;
+        margin: 5px 0;
       }
       .minute,
       .distance {
@@ -107,7 +142,7 @@ export default {
         transform: scalex(0.5);
         margin-left: 3px;
       }
-      .star-box{
+      .star-box {
         display: inline-block;
       }
       .i {
@@ -120,5 +155,13 @@ export default {
       }
     }
   }
+}
+.loading{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width:1.4rem;
+  height:1.4rem;
 }
 </style>

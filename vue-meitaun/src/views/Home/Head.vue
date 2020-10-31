@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="container">
-      <input type="text" />
+      <input type="text" placeholder="请输入商品名称"/>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {};
     border-radius: 0.3rem;
     border: none;
     outline: none;
-    text-indent: 20px;
+    text-indent: 30px;
   }
 }
 </style>
