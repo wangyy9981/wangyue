@@ -11,6 +11,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -47,7 +48,10 @@ export default {
     box-sizing: border-box;
     p {
       margin-top: 5px;
-      font-size: 18px;
+      font-size: .2px;
+    }
+    img{
+     width: 60%;
     }
   }
 }

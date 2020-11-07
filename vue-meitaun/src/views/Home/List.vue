@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="store-List">
-      <h2 class="store-title">附近商家</h2>
+      <h3 class="store-title">附近商家</h3>
       <div class="List">
         <ul class="store-box">
-          <li class="store-li" v-for="obj in storeList" :key="obj.id">
+          <li class="store-li" v-for="obj in storeList" :key="obj.id"
+           @click="$router.push({path:'/detail',query:{id:obj.id}})"
+           >
             <img :src="obj.img" />
             <div class="store-inf">
               <p class="sto-name">{{ obj.name }}</p>
@@ -67,7 +69,6 @@ export default {
             if(this.storeList.length>=result.data.total){
               this.isFinish=true;
             }
-            
           }
         })
         .catch((error) => {
@@ -81,7 +82,7 @@ export default {
       let scrollTtop = document.documentElement.scrollTop; // 获滚动条滚动高度
       let clientHeight = document.documentElement.clientHeight; //可视区高度
       let scrollHeight = document.documentElement.scrollHeight; //整个页面的高度
-      console.log(scrollTtop, clientHeight, scrollHeight);
+      // console.log(scrollTtop, clientHeight, scrollHeight);
       if (Math.ceil(scrollTtop) + clientHeight >= scrollHeight && !this.isFinish) {
         this.isShow=true;
         this.getStorelist();
@@ -93,16 +94,16 @@ export default {
 
 <style lang="scss" scoped>
 .store-List {
-  h2 {
+  h3 {
     text-align: center;
-    font-size: 23px;
+    font-size: .7px;
     margin: 10px 0;
   }
   .store-title::after,
   .store-title::before {
     content: "";
     display: inline-block;
-    width: 100px;
+    width: 1.3rem;
     height: 1px;
     background: #666;
     vertical-align: middle;
@@ -112,15 +113,16 @@ export default {
     display: flex;
     justify-self: start;
     padding-right: 0.4rem;
+    margin-bottom: .1rem;
     img {
       width: 1.4rem;
-      margin: 10px;
+      margin: 0 .2rem .2rem .2rem;
     }
     .store-inf {
       flex: 1;
       .sto-name {
         font-size: 0.25rem;
-        margin-bottom: 10px;
+        margin-bottom: .1rem;
       }
       p {
         font-size: 11px;
