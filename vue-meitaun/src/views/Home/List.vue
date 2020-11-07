@@ -11,7 +11,7 @@
             <div class="store-inf">
               <p class="sto-name">{{ obj.name }}</p>
               <p>
-                <Star class="star-box" :num="obj.score"></Star>
+                <Star class="star-box" :num="parseFloat(obj.score)"></Star>
                 {{ obj.score }}分 <span class="sell">月售{{ obj.num }}</span>
                 <span class="minute">{{ obj.minute }}分钟</span>
               </p>
@@ -53,7 +53,7 @@ export default {
     getStorelist() {
       axios
         .get(
-          "http://admin.gxxmglzx.com/tender/test/get_store?current='+this.pageNum+'&size=10"
+          "http://admin.gxxmglzx.com/tender/test/get_store?current="+this.pageNum+"&size=10"
         )
         .then((res) => {
           console.log(res);

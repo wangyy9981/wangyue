@@ -2,16 +2,16 @@
     <div>
         <div class="head-box">
             <div class="left">
-                <p class="L-num">4.9分</p>
+                <p class="L-num">{{list.delivery}}</p>
                 <p class="score">商家评分</p>
             </div>
             <div class="center">
-                <p>口味<Star class="star-box" num="4.7"></Star><span>4.7</span></p>
-                <p>包装<Star class="star-box" num="4.7"></Star><span>4.8</span></p> 
+                <p><span class="box-left">口味</span> <Star class="star-box" :num="parseFloat(list.flavor)"></Star><span class="box-right"> {{list.flavor}}分</span></p>
+                <p><span class="box-left">包装</span> <Star class="star-box" :num="parseFloat(list.packing)"></Star><span class="box-right"> {{list.packing}}分</span></p> 
             </div>
             <div class="right">
-                <p class="R-num">4.9分</p>
-                <p class="score">商家评分</p>
+                <p class="R-num">{{list.score}}</p>
+                <p class="score">配送评分</p>
             </div>
         </div>
     </div>
@@ -21,9 +21,10 @@
 import Star from "@/components/Star";
 
     export default {
+        props:["list"],
         components:{
             Star
-        }
+        },
     }
 </script>
 
@@ -31,6 +32,7 @@ import Star from "@/components/Star";
 .head-box{
     display: flex;
     justify-content: space-between;
+    margin-top: .2rem;
     .left{
         width: 20%;
         text-align: center;
@@ -41,15 +43,20 @@ import Star from "@/components/Star";
     }
     .center{
         width: 60%;
-        padding: .1rem;
+        margin-left: .1rem;
         text-align: left;
+        margin-left: .1rem;
+        border-right: 1px solid #999;
         .star-box{
             display: inline-block;
             margin-left: .1rem;
             margin-bottom: .1rem;
         }
-        span{
+        .box-right{
             color: #ffb000;
+        }
+        .box-left{
+           font-size: 13px; 
         }
     }
     .right{
@@ -61,6 +68,7 @@ import Star from "@/components/Star";
         }
     }
     .score{
+        font-size: 13px;
         color: #999;
     }
 }
