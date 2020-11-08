@@ -4,7 +4,9 @@
       <Head></Head>
       <!-- tab切换 -->
       <van-tabs v-model="active" animated sticky color="#ffb000">
-        <van-tab :title="'点餐'">点餐页</van-tab>
+        <van-tab :title="'点餐'">
+          <Order></Order>
+        </van-tab>
         <van-tab :title="'评论'">
           <comment></comment>
         </van-tab>
@@ -19,6 +21,7 @@
 <script>
 import Head from "./Head";
 import comment from "./comment/index";
+import Order from "./order/index";
 import BetterScroll from "better-scroll";
 import stoinformation from "./information/stoInformation";
 
@@ -27,6 +30,7 @@ export default {
     Head,
     comment,
     stoinformation,
+    Order,
   },
   data() {
     return {

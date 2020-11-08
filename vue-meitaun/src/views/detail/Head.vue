@@ -5,8 +5,9 @@
       <img class="store-img" :src="Store.img" />
       <div class="store-msg">
         <div class="detail">
-          1，由于奶盖为鲜奶打制，配送中奶盖可能会出现下沉和茶混的现象，如对口感有特别要求的顾客请选择奶盖分装；
-          2，需要发票的顾客请直接扫门店小票的二维码开电子发票，外卖开票仅包含商品金额，望周知谅解！
+          <p><span>{{Store.minute}}</span>分钟  <span>{{Store.distance}}</span> </p>
+          {{Store.notice}}
+          <p>{{Store.full}}</p>
         </div>
       </div>
     </div>
@@ -59,6 +60,7 @@ import axios from 'axios'
       flex: 1;
       width: 0; /*不受子元素宽度撑大*/
       .detail {
+        margin-left: .1rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

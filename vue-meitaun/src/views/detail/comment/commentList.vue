@@ -45,7 +45,7 @@ export default {
   width: 100%;
   height: 0.2rem;
   margin-top: 0.2rem;
-  background-color: #bbb;
+  background-color: #f5f5f5;
 }
 .info-box {
   padding: 0.2rem;
