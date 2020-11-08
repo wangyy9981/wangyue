@@ -1,9 +1,9 @@
 <template>
   <div>
-    <!-- header -->
-    <commentHead :list="list"></commentHead>
-    <!-- list -->
-    <commentList :list="list" @update="change"></commentList>
+      <!-- header -->
+      <commentHead :list="list"></commentHead>
+      <!-- list -->
+      <commentList :list="list" @update="change"></commentList>
   </div>
 </template>
 
@@ -13,34 +13,41 @@ import commentList from "./commentList";
 import axios from "axios";
 
 export default {
-  data(){
-    return{
-      list:{}
-    }
+  data() {
+    return {
+      list: {},
+    };
   },
   components: {
     commentHead,
-    commentList
+    commentList,
   },
-  methods:{
-    getComment(typeId){
-      axios.get("http://admin.gxxmglzx.com/tender/test/get_info?id="+this.$route.query.id+"&type="+typeId)
-      .then((res)=>{
-        this.list=res.data.data;
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
+  methods: {
+    getComment(typeId) {
+      axios
+        .get(
+          "http://admin.gxxmglzx.com/tender/test/get_info?id=" +
+            this.$route.query.id +
+            "&type=" +
+            typeId
+        )
+        .then((res) => {
+          this.list = res.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-    change(id){
+    change(id) {
       this.getComment(id);
-    }
+    },
   },
-  created(){
+  created() {
     this.getComment(1);
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+
 </style>
