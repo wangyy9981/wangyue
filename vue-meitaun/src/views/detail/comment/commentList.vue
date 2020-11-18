@@ -83,8 +83,7 @@ export default {
       float: right;
     }
     p {
-      margin-top: 0.1rem;
-      margin-bottom: 0.1rem;
+      margin: 0.1rem 0;
     }
   }
 }

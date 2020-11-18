@@ -1,15 +1,20 @@
 <template>
   <div>
-      <!-- header -->
-      <commentHead :list="list"></commentHead>
-      <!-- list -->
-      <commentList :list="list" @update="change"></commentList>
+    <div class="s-wrapper">
+      <div>
+        <!-- header -->
+        <commentHead :list="list"></commentHead>
+        <!-- list -->
+        <commentList :list="list" @update="change"></commentList>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import commentHead from "./commentHead";
 import commentList from "./commentList";
+import BetterScroll from "better-scroll";
 import axios from "axios";
 
 export default {
@@ -33,6 +38,12 @@ export default {
         )
         .then((res) => {
           this.list = res.data.data;
+          this.$nextTick(() => {
+            let be = new BetterScroll(".s-wrapper", {
+              click: true,
+              bounce: false,
+            });
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -49,5 +60,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.s-wrapper {
+  height: calc(100vh - 44px) ;
+}
 </style>

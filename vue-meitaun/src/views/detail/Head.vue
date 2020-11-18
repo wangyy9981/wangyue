@@ -2,12 +2,12 @@
   <div class="container">
     <div class="back" @click="$router.go(-1)">&lt;</div>
     <div class="store-info">
-      <img class="store-img" :src="Store.img" />
+      <img class="store-img" :src="storeMsg.img" />
       <div class="store-msg">
         <div class="detail">
-          <p><span>{{Store.minute}}</span>分钟  <span>{{Store.distance}}</span> </p>
-          {{Store.notice}}
-          <p>{{Store.full}}</p>
+          <p><span>{{storeMsg.minute}}</span>分钟  <span>{{storeMsg.distance}}</span> </p>
+          {{storeMsg.notice}}
+          <p>{{storeMsg.full}}</p>
         </div>
       </div>
     </div>
@@ -16,28 +16,9 @@
 </template>
 
 <script>
-import axios from 'axios'
+
     export default {
-        data(){
-            return {
-                Store:''
-            }
-        },
-        methods:{
-            getStore(){
-                axios.get( "http://admin.gxxmglzx.com/tender/test/get_store_id?id="+this.$route.query.id)
-                .then((res)=>{
-                    this.Store=res.data.data;
-                    console.log(this.Store);
-                })
-                .catch((error)=>{
-                    console.log(error);
-                })
-            }
-        },
-        created(){
-            this.getStore();
-        }
+       props:['storeMsg']
     }
 </script>
 

@@ -56,7 +56,7 @@ export default {
           "http://admin.gxxmglzx.com/tender/test/get_store?current="+this.pageNum+"&size=10"
         )
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           let result = res.data;
           if (result.errcode == 200) {
             // this.storeList = result.data.list;

@@ -23,7 +23,7 @@ export default {
     axios
       .get("http://admin.gxxmglzx.com/tender/test/get_type")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         let result = res.data;
         if (result.errcode == 200) {
           this.cateList = result.data;
