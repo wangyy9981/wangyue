@@ -1,0 +1,24 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-11 14:29:23
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-12 16:10:13
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\leetcode\118_杨辉三角.html
+-->
+<script>
+    // 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
+    // 在「杨辉三角」中，每个数是它左上方和右上方的数的和。
+    var generate = function (numRows) {
+        let res = []
+        for (let i = 0; i < numRows; i++) {
+            let arr = new Array(i + 1).fill(1)
+            for (let j = 1; j < arr.length - 1; j++) {
+                arr[j] = res[i - 1][j - 1] + res[i - 1][j]
+            }
+            res.push(arr)
+        }
+        return res
+    }
+    console.log(generate(5))
+</script>

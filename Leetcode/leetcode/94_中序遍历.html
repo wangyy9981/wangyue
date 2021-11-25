@@ -1,0 +1,25 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-15 08:40:34
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-15 09:14:10
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\leetcode\94_中序遍历.html
+-->
+<script>
+    // 给定一个二叉树的根节点 root ，返回它的 中序 遍历。
+    var inorderTraversal = function (root) {
+        const res = []
+        const inorder = (root) => {
+            if (!root) {
+                return
+            }
+            inorder(root.left)
+            res.push(root.val)
+            inorder(root.right)
+        }
+        inorder(root)
+        return res
+    }
+    console.log(inorderTraversal())
+</script>

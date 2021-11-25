@@ -1,0 +1,20 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-10 13:58:18
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-10 14:02:34
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\leetcode\121_股票.html
+-->
+<script>
+    var maxProfit = function (prices) {
+        let res = 0,
+            ans = prices[0]
+        for (let i = 0; i < prices.length; i++) {
+            ans = Math.min(ans, prices[i])
+            res = Math.max(res, prices[i] - ans)
+        }
+        return res
+    }
+    console.log(maxProfit([7, 1, 5, 3, 6, 4]))
+</script>

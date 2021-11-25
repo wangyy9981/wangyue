@@ -1,0 +1,29 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-09-29 16:38:24
+ * @LastEditTime: 2021-09-29 19:50:42
+ * @LastEditors: Wangyue
+ * @Description: 
+ * @FilePath: /js/leetcode/509_斐波那契数.html
+-->
+<script>
+  var fib = function(n) {
+    // 递归
+    // if(n==0){
+    //   return 0
+    // }else if(n===1||n===2){
+    //   return 1
+    // }
+    // return fib(n-1)+fib(n-2)
+
+    // 循环
+    let res=[]
+    res[0]=0
+    res[1]=1
+    res[2]=2
+    for(let i=3;i<=n;i++){
+      res[i]=res[i-1]+res[i-2]
+    }
+    return res[n]
+  };
+</script>

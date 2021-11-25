@@ -1,0 +1,46 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-10 10:36:29
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-10 11:44:38
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\teste.html
+-->
+<script>
+    // 字符串中含有数字、字母、问号，安大小内部排序
+    // 问号位置不变
+    // 数字所占位置不变，字母所占位置不变
+    function sort(str) {
+        let p = 0,
+            q = 1
+        strs = str.split('')
+        while (p < strs.length) {
+            if (
+                strType(strs[p]) === strType(strs[q]) &&
+                strType(strs[p]) !== '?'
+            ) {
+                if (strs[p] < strs[q]) {
+                    const temp = strs[p]
+                    strs[p] = strs[q]
+                    strs[q] = temp
+                }
+            }
+            if (strType(strs[p]) === '?' || q >= strs.length) {
+                p++
+                q = p
+            }
+            q++
+        }
+        return strs.join('')
+    }
+    function strType(s) {
+        if (s === '?') {
+            return '?'
+        } else if (s >= '0' && s <= '9') {
+            return 'number'
+        } else if ((s >= 'A' && s <= 'Z') || (s >= 'a' && s <= 'z')) {
+            return 'str'
+        }
+    }
+    sort('sa?e12')
+</script>

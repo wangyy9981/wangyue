@@ -1,0 +1,29 @@
+<script>
+  // 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+  // 有效字符串需满足：
+  // 左括号必须用相同类型的右括号闭合。
+  // 左括号必须以正确的顺序闭合。
+  // 输入：s = "()[]{}"
+  // 输出：true
+  var isValid = function(s) {
+    const str="{[()]}"
+    let stack=[]
+    for(let i=0;i<s.length;i++){
+      if(str.indexOf(s[i])<3){
+        stack.push(s[i]) 
+      }
+      else{
+       const strtop=stack.pop()
+       if(strtop!==str.charAt(5-str.indexOf(s[i]))){
+         return false
+       }
+      }
+    }
+    if(stack.length!==0){
+      return false
+    }
+    return true
+  };
+  const s= "{[]}"
+  console.log(isValid(s));
+</script>

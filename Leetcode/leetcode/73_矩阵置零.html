@@ -1,0 +1,42 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-12 17:23:05
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-12 17:48:13
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\leetcode\73_矩阵置零.html
+-->
+<script>
+    // 给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用 原地 算法。
+    var setZeroes = function (matrix) {
+        let n = matrix[0].length
+        let m = matrix.length
+        let row = new Set()
+        let col = new Set()
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                if (matrix[i][j] === 0) {
+                    row.add(i)
+                    col.add(j)
+                }
+            }
+        }
+        for (let i = 0; i < m; i++) {
+            if (row.has(i)) {
+                matrix[i].fill(0)
+            }
+            for (let j = 0; j < n; j++) {
+                if (col.has(j)) {
+                    matrix[i][j] = 0
+                }
+            }
+        }
+        return matrix
+    }
+    let matrix = [
+        [1, 1, 1],
+        [1, 0, 1],
+        [1, 1, 1],
+    ]
+    console.log(setZeroes(matrix))
+</script>

@@ -1,0 +1,23 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-09-29 17:22:46
+ * @LastEditTime: 2021-09-29 17:36:11
+ * @LastEditors: Wangyue
+ * @Description: 
+ * @FilePath: /js/leetcode/136_只出现一次的数字.html
+-->
+<script>
+  // 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+  // 输入: [2,2,1]
+  // 输出: 1
+  var singleNumber = function(nums) {
+    nums=nums.sort()
+    // console.log(nums);
+    for(let i=0;i<nums.length;i++){
+      if(nums[i]!==nums[i+1]&&nums[i]!==nums[i-1]){
+        return nums[i]
+      }
+    }
+  };
+  console.log(singleNumber([4,1,2,1,2]));
+</script>

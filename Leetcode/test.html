@@ -1,0 +1,39 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-09 19:24:56
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-10 19:26:27
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\test.html
+-->
+<script>
+    // let base = {
+    //     name: 'base',
+    // }
+    // let A = function () {
+    //     this.name = 'a'
+    // }
+    // A.prototype = Object.create(base)
+    // let a = new A()
+    // base.name = 'new_name'
+    // console.log(a.name)
+    // delete a.name
+    // console.log(a.name)
+
+    // for (let i = 0; i < 10; i++) {
+    //     console.log('i', i)
+    //     innerloop: for (j = 0; j < 10; j++) {
+    //         if (i == 5) {
+    //             break innerloop
+    //         }
+    //         console.log('j', j)
+    //     }
+    // }
+
+    var F = function () {}
+    var p = F.prototype
+    var c = p.prototype
+    alert(c === F)
+    var o = new F()
+    alert(o.construction === F)
+</script>

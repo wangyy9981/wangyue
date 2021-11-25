@@ -1,0 +1,83 @@
+<!--
+ * @Author: Wangyue
+ * @Date: 2021-10-15 09:14:29
+ * @LastEditors: Wangyue
+ * @LastEditTime: 2021-10-15 09:32:18
+ * @Description: file content
+ * @FilePath: \wangyue\Leetcode\leetcode\0_二叉树遍历.html
+-->
+<script>
+    var tree = {
+        value: 1,
+        left: {
+            value: 2,
+            left: {
+                value: 4,
+            },
+        },
+        right: {
+            value: 3,
+            left: {
+                value: 5,
+                left: {
+                    value: 7,
+                },
+                right: {
+                    value: 8,
+                },
+            },
+            right: {
+                value: 6,
+            },
+        },
+    }
+
+    // 前序遍历
+    var preOrderTraversal = function (root) {
+        const res = []
+        const preOrder = (root) => {
+            if (!root) {
+                return
+            }
+            res.push(root.value)
+            preOrder(root.left)
+            preOrder(root.right)
+        }
+        preOrder(root)
+        return res
+    }
+
+    // 中序遍历
+    var inorderTraversal = function (root) {
+        const res = []
+        const inorder = (root) => {
+            if (!root) {
+                return
+            }
+            inorder(root.left)
+            res.push(root.value)
+            inorder(root.right)
+        }
+        inorder(root)
+        return res
+    }
+
+    // 后序遍历
+    var postOrderTraversal = function (root) {
+        const res = []
+        const postOrder = (root) => {
+            if (!root) {
+                return
+            }
+            postOrder(root.left)
+            postOrder(root.right)
+            res.push(root.value)
+        }
+        postOrder(root)
+        return res
+    }
+
+    console.log(preOrderTraversal(tree)) //前序遍历 1,2,4,3,5,7,8,6
+    console.log(inorderTraversal(tree)) //中序遍历 4,2,1,7,5,8,3,6
+    console.log(postOrderTraversal(tree))
+</script>

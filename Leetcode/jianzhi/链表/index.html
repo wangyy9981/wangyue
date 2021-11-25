@@ -1,0 +1,101 @@
+<script>
+    class Node{
+      constructor(v){
+        this.value=v
+        this.next=null
+      }
+    }
+
+    class SingleList{
+      constructor(){
+        this.size=0; //链表长度
+        this.head=new Node("head") //链表头节点
+      }
+
+      // 在单链表中寻找item元素
+      find(item) {
+        let count=0
+        let currNode=this.head
+        while(currNode.next){
+          if(item!==null&&currNode.next.value=== item){
+            return currNode.next
+          }
+          count++
+          currNode=currNode.next
+        }
+        this.size=count
+        return currNode
+      } 
+
+      // 向单链表中插入元素
+      // element作为新的节点的数据，item则是单链表中已经存在的节点值，要插入的新节点的位置位于item之后此时要插入节点的位置分为两种情况：
+      // 1、要插入的位置处于单链表的中间位置，此时将新的节点的next指针指向item的下一个元素，再将item的next指针指向新的元素即可。
+      // 2、要插入的位置处于单链表的尾部，此时只要将新的节点插入在最后一个节点之后即可。
+      insert(item, element) {
+        let itemIndex=this.find(item)
+        let el=new Node(element)
+        itemIndex.next=el
+      } 
+
+      // 在单链表中删除一个节点
+      remove(item) {
+        let currNode=this.find(item)
+        currNode.next=currNode.next.next
+      }  
+
+      // 在单链表的尾部添加元素
+      append(element) {
+        let newNode=new Node(element)
+        let currNode=this.find(null)
+        currNode.next=newNode
+      }  
+
+      // 反转链表
+      reverseList()
+      {
+        let currNode=this.head;
+        let count=0
+        console.log(currNode);
+        while(currNode.next){
+          currNode=currNode.next
+          count++
+        }
+        console.log(currNode);
+        console.log("count",count);
+        while(count){
+          this.head.next=this.head.next.next
+          currNode.next=this.head.next
+          count--
+        }
+      }
+
+      // 获取单链表的长度
+      getLength() {
+        this.find(null)
+        return this.size
+      }  
+
+      // 单链表的遍历显示
+      display() {
+        let currNode=this.head
+        let res=[]
+        while(currNode){
+          res.push(currNode.value)
+        }
+        return res
+      }  
+      // 清空单链表
+      clear() {
+        this.head.next=null
+        this.size=0
+      }  
+    }
+    let myList = new SingleList();
+    let arr = [3, 4, 5, 6, 7, 8, 9];
+    arr.forEach((item)=>{
+      myList.append(item)
+    })
+    console.log(myList);
+    myList.reverseList()
+    // console.log(myList);
+</script>

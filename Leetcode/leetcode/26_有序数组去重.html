@@ -1,0 +1,20 @@
+<script>
+  // 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。
+  // 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+  // 输入：nums = [0,0,1,1,1,2,2,3,3,4]
+  // 输出：5, nums = [0,1,2,3,4]
+
+  //思路： 交换思想 用两个指针，一个指针（p）指向当前节点，另一个（q）找到值不同的节点，将不同的值放到p的下一位
+  var removeDuplicates = function(nums) {
+    let p=0,q=1;
+    for(let q=1;q<nums.length;q++){
+      if(nums[p]!==nums[q]){
+        p++
+        nums[p]=nums[q]
+      }
+    }
+    return p+1
+  };
+  const num = [0,0,1,1,1,2,2,3,3,4]
+  console.log(removeDuplicates(num));
+</script>
